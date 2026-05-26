@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project Name | Harry Klair</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Extra styles just for the project writeup page -->
+  <style>
+    /* ── Project page layout ── */
+    .project-page {
+      padding: 9rem 1.5rem 6rem;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    /* Back link */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--text-3);
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      margin-bottom: 2.5rem;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--accent); }
+
+    /* Header */
+    .proj-header { margin-bottom: 3rem; }
+    .proj-header__meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    .proj-header__title {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+    .proj-header__summary {
+      color: var(--text-2);
+      font-size: 1.08rem;
+      line-height: 1.8;
+      border-left: 3px solid var(--accent);
+      padding-left: 1.2rem;
+    }
+
+    /* Stats strip */
+    .proj-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin: 2rem 0;
+      padding: 1.4rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+    }
+    .proj-stat {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+      flex: 1;
+      min-width: 120px;
+    }
+    .proj-stat__label {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--text-3);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .proj-stat__value {
+      font-weight: 600;
+      color: var(--text-1);
+      font-size: 0.95rem;
+    }
+
+    /* Content sections */
+    .proj-section { margin-bottom: 3rem; }
+    .proj-section h2 {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-1);
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .proj-section p {
+      color: var(--text-2);
+      line-height: 1.8;
+      margin-bottom: 0.9rem;
+    }
+    .proj-section ul {
+      list-style: none;
+      color: var(--text-2);
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .proj-section ul li::before {
+      content: '→ ';
+      color: var(--accent);
+      font-family: var(--font-mono);
+      font-size: 0.85em;
+    }
+
+    /* Screenshot / image block */
+    .proj-image {
+      width: 100%;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      margin: 1.5rem 0;
+      background: var(--bg-card);
+      min-height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-3);
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+    }
+    .proj-image img {
+      width: 100%;
+      border-radius: var(--radius-lg);
+    }
+
+    /* Code block style */
+    .proj-code {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.2rem 1.4rem;
+      font-family: var(--font-mono);
+      font-size: 0.83rem;
+      color: var(--accent);
+      overflow-x: auto;
+      margin: 1rem 0;
+    }
+
+    /* Findings / key results callout */
+    .proj-callout {
+      background: var(--accent-dim);
+      border: 1px solid rgba(56,189,248,0.2);
+      border-radius: var(--radius-lg);
+      padding: 1.2rem 1.5rem;
+      margin: 1.5rem 0;
+    }
+    .proj-callout__label {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      margin-bottom: 0.5rem;
+    }
+    .proj-callout p {
+      color: var(--text-1);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    /* Actions row */
+    .proj-actions {
+      display: flex;
+      gap: 0.85rem;
+      flex-wrap: wrap;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav (same as index.html - simplified here) -->
+  <nav class="nav" id="navbar">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">HK<span class="accent">.</span></a>
+      <ul class="nav__links">
+        <li><a href="index.html#about"          class="nav__link">About</a></li>
+        <li><a href="index.html#projects"       class="nav__link">Projects</a></li>
+        <li><a href="index.html#skills"         class="nav__link">Skills</a></li>
+        <li><a href="index.html#certifications" class="nav__link">Certifications</a></li>
+        <li><a href="index.html#contact"        class="nav__link">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <main class="project-page">
+
+    <!-- Back link -->
+    <a href="index.html#projects" class="back-link">← Back to Projects</a>
+
+    <!-- ── Project Header ── -->
+    <header class="proj-header">
+      <div class="proj-header__meta">
+        <!-- EDIT: Change status and tags as needed -->
+        <span class="project-card__status status--complete">Completed</span>
+        <span class="tag">Python</span>
+        <span class="tag">Kali Linux</span>
+        <span class="tag">YOUR TOOLS HERE</span>
+      </div>
+
+      <!-- EDIT: Your project title -->
+      <h1 class="proj-header__title">IoT Honeypot &amp; Threat Analysis</h1>
+
+      <!-- EDIT: One-paragraph summary -->
+      <p class="proj-header__summary">
+        A virtualised IoT honeypot environment built to capture and analyse real-world attacker behaviour.
+        552 authentication attempts were logged and analysed using a custom Python tool, revealing credential
+        patterns, attack origins, and attacker methodology.
+      </p>
+    </header>
+
+    <!-- ── Stats Strip ── -->
+    <!-- EDIT: Fill in your own key numbers -->
+    <div class="proj-stats">
+      <div class="proj-stat">
+        <span class="proj-stat__label">Total Attempts</span>
+        <span class="proj-stat__value accent">552</span>
+      </div>
+      <div class="proj-stat">
+        <span class="proj-stat__label">Failure Rate</span>
+        <span class="proj-stat__value accent">98.4%</span>
+      </div>
+      <div class="proj-stat">
+        <span class="proj-stat__label">Duration</span>
+        <span class="proj-stat__value">7 Days</span>
+      </div>
+      <div class="proj-stat">
+        <span class="proj-stat__label">Platform</span>
+        <span class="proj-stat__value">VirtualBox / Kali</span>
+      </div>
+    </div>
+
+
+    <!-- ── Section: Overview ── -->
+    <div class="proj-section">
+      <h2>Project Overview</h2>
+      <p>
+        <!-- EDIT: Describe what you built and why -->
+        This project was developed as a Final Year Project to investigate how IoT devices are targeted by
+        automated credential attacks. A Cowrie SSH/Telnet honeypot was deployed in a VirtualBox virtualised
+        environment to safely capture attacker interactions without exposing real systems.
+      </p>
+      <p>
+        The system ran continuously, logging all inbound connection attempts, credential pairs used,
+        commands executed, and session metadata. A custom Python analysis tool was written to process
+        the raw logs and generate statistical reports.
+      </p>
+    </div>
+
+    <!-- ── Section: Screenshot placeholder ── -->
+    <div class="proj-image">
+      <!-- REPLACE with: <img src="screenshots/architecture.png" alt="System architecture diagram" /> -->
+      [ Screenshot: System Architecture Diagram ]
+    </div>
+
+
+    <!-- ── Section: Technical Approach ── -->
+    <div class="proj-section">
+      <h2>Technical Approach</h2>
+      <ul>
+        <!-- EDIT: List your actual technical steps -->
+        <li>Deployed Cowrie honeypot on Ubuntu VM via VirtualBox with iptables redirect on port 22</li>
+        <li>Configured fake IoT environment to attract automated scanning traffic</li>
+        <li>Captured 552 authentication attempts over a 7-day capture window</li>
+        <li>Built <code>enhanced_credential_analyzer.py</code> to parse logs and extract statistical insights</li>
+        <li>Analysed top credential pairs, attack timing patterns, and geographic source data</li>
+        <li>Produced formal threat analysis report with remediation recommendations</li>
+      </ul>
+    </div>
+
+
+    <!-- ── Section: Key Findings callout ── -->
+    <div class="proj-callout">
+      <p class="proj-callout__label">Key Finding</p>
+      <p>
+        <!-- EDIT: Your most interesting result -->
+        98.4% of all 552 authentication attempts failed, with "admin/admin" and "root/root" accounting
+        for over 40% of credential attempts — demonstrating the scale of automated IoT credential scanning.
+      </p>
+    </div>
+
+    <!-- ── Screenshot 2 ── -->
+    <div class="proj-image">
+      <!-- REPLACE with: <img src="screenshots/results-chart.png" alt="Results chart" /> -->
+      [ Screenshot: Attack frequency chart / Python analysis output ]
+    </div>
+
+
+    <!-- ── Section: Results ── -->
+    <div class="proj-section">
+      <h2>Results &amp; Analysis</h2>
+      <p>
+        <!-- EDIT: Describe what you found -->
+        The capture period produced a dataset of 552 individual authentication attempts from 87 unique
+        source IPs. Attack activity was consistent across all hours, suggesting fully automated scanning
+        bots rather than manual attackers.
+      </p>
+      <ul>
+        <li>Top credential pair: admin / admin (used in 22% of attempts)</li>
+        <li>Attack traffic peaked between 02:00 – 06:00 UTC</li>
+        <li>87 unique source IPs identified across 14 countries</li>
+        <li>All failed attempts confirm credential stuffing as primary attack vector</li>
+      </ul>
+    </div>
+
+
+    <!-- ── Section: Code snippet ── -->
+    <div class="proj-section">
+      <h2>Code Highlight</h2>
+      <p>Custom Python credential analyser — processes Cowrie logs and outputs ranked credential data:</p>
+      <!-- EDIT: Paste a relevant snippet from your code -->
+      <pre class="proj-code">
+# enhanced_credential_analyzer.py (excerpt)
+def analyse_credentials(log_path):
+    attempts = parse_cowrie_logs(log_path)
+    credential_counts = Counter(attempts)
+    return credential_counts.most_common(10)
+      </pre>
+    </div>
+
+
+    <!-- ── Section: What I Learned ── -->
+    <div class="proj-section">
+      <h2>What I Learned</h2>
+      <ul>
+        <!-- EDIT: Your honest reflection -->
+        <li>Hands-on understanding of how automated IoT scanning operates at scale</li>
+        <li>Practical experience configuring iptables, SSH honeypots, and log pipelines</li>
+        <li>Python data analysis and visualisation for security log datasets</li>
+        <li>How to write a professional threat intelligence report</li>
+      </ul>
+    </div>
+
+
+    <!-- ── Section: Improvements (optional) ── -->
+    <div class="proj-section">
+      <h2>Future Improvements</h2>
+      <ul>
+        <!-- EDIT: What would you add with more time -->
+        <li>Integrate live GeoIP lookup to map attack origins in real time</li>
+        <li>Add Telegram / email alerting for high-volume attack sessions</li>
+        <li>Deploy to a cloud VPS to capture wider internet-facing traffic</li>
+      </ul>
+    </div>
+
+
+    <!-- ── Actions ── -->
+    <div class="proj-actions">
+      <a href="https://github.com/YOURGITHUB/iot-honeypot" target="_blank" rel="noopener" class="btn btn--primary">View on GitHub ↗</a>
+      <a href="index.html#projects" class="btn btn--ghost">← All Projects</a>
+    </div>
+
+  </main>
+
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span class="mono footer__name">Harry Klair</span>
+      <span class="footer__copy">Built by hand. Hosted on GitHub Pages.</span>
+      <a href="#" class="footer__top mono">↑ Back to top</a>
+    </div>
+  </footer>
+
+</body>
+</html>
