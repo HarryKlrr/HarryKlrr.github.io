@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Harry Klair – Cyber Security Graduate. Penetration Testing, SOC, Azure Security, Defensive Cyber."/>
+<title>Harry Klair | Cyber Security</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#07090f;color:#f1f5f9;font-family:'Outfit',sans-serif;font-size:1rem;line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+:root{
+  --accent:#38bdf8;--accent-dim:rgba(56,189,248,.08);--accent-glow:rgba(56,189,248,.15);
+  --green:#34d399;--amber:#fbbf24;
+  --bg:#07090f;--bg-card:#0c1120;--bg-elevated:#0f1929;--border:#1a2744;
+  --text-1:#f1f5f9;--text-2:#94a3b8;--text-3:#475569;
+  --fd:'Syne',sans-serif;--fb:'Outfit',sans-serif;--fm:'JetBrains Mono',monospace;
+  --ease:cubic-bezier(.4,0,.2,1);--r:8px;--rl:14px;
+}
+.mono{font-family:var(--fm);font-size:.85em}
+.accent{color:var(--accent)}
+.container{max-width:1100px;margin:0 auto;padding:0 1.75rem}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.btn{display:inline-flex;align-items:center;gap:.4rem;padding:.7rem 1.5rem;border-radius:var(--r);font-family:var(--fb);font-size:.95rem;font-weight:500;cursor:pointer;border:1px solid transparent;transition:all .2s var(--ease);white-space:nowrap}
+.btn-p{background:var(--accent);color:#07090f;border-color:var(--accent)}
+.btn-p:hover{background:#7dd3fc;transform:translateY(-2px)}
+.btn-g{background:transparent;color:var(--text-1);border-color:var(--border)}
+.btn-g:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
+.btn-s{padding:.45rem .9rem;font-size:.82rem;background:transparent;border:1px solid var(--border);border-radius:var(--r);color:var(--text-2);transition:all .2s;display:inline-flex;align-items:center}
+.btn-s:hover{border-color:var(--accent);color:var(--accent)}
+.btn-sa{padding:.45rem .9rem;font-size:.82rem;background:var(--accent-dim);border:1px solid var(--accent);border-radius:var(--r);color:var(--accent);display:inline-flex;align-items:center;transition:all .2s}
+.btn-sa:hover{background:var(--accent-glow)}
+.tag{font-family:var(--fm);font-size:.7rem;padding:.2rem .55rem;background:rgba(56,189,248,.06);border:1px solid rgba(56,189,248,.15);border-radius:4px;color:var(--accent)}
+.stag{font-size:.82rem;padding:.3rem .75rem;background:var(--bg-elevated);border:1px solid var(--border);border-radius:6px;color:var(--text-2);transition:all .2s}
+.stag:hover{border-color:var(--accent);color:var(--text-1)}
+.badge{font-size:.7rem;font-weight:600;padding:.2rem .65rem;border-radius:100px;letter-spacing:.03em;white-space:nowrap}
+.bc{background:rgba(52,211,153,.1);color:var(--green);border:1px solid rgba(52,211,153,.25)}
+.bp{background:rgba(251,191,36,.1);color:var(--amber);border:1px solid rgba(251,191,36,.25)}
+.bf{background:rgba(56,189,248,.1);color:var(--accent);border:1px solid rgba(56,189,248,.25)}
+.bpl{background:rgba(148,163,184,.08);color:var(--text-3);border:1px solid var(--border)}
+.sec{padding:6rem 0}
+.sec-alt{background:#090e1b;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.slabel{font-family:var(--fm);font-size:.75rem;color:var(--accent);letter-spacing:.08em;margin-bottom:.5rem;opacity:.85}
+.sheading{font-family:var(--fd);font-size:clamp(1.8rem,4vw,2.5rem);font-weight:700;margin-bottom:1rem;line-height:1.2}
+.ssub{color:var(--text-2);max-width:560px;margin-bottom:2.5rem;font-size:1.05rem}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(7,9,15,.9);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:1100px;margin:0 auto;padding:0 1.75rem;height:64px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:var(--fd);font-size:1.3rem;font-weight:800;letter-spacing:-.02em;transition:color .2s}
+.nav-logo:hover{color:var(--accent)}
+.nav-links{display:flex;gap:2rem}
+.nav-link{font-size:.88rem;font-weight:500;color:var(--text-2);transition:color .2s;position:relative}
+.nav-link::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;background:var(--accent);transition:width .25s var(--ease)}
+.nav-link:hover,.nav-link.active{color:var(--text-1)}
+.nav-link:hover::after,.nav-link.active::after{width:100%}
+.nav-ham{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.nav-ham span{display:block;width:24px;height:2px;background:var(--text-2);border-radius:2px;transition:all .3s var(--ease)}
+.nav-ham.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-ham.open span:nth-child(2){opacity:0}
+.nav-ham.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.nav-mob{display:none;flex-direction:column;padding:1rem 1.75rem 1.5rem;border-top:1px solid var(--border);gap:.2rem}
+.nav-mob.open{display:flex}
+.nav-mob a{padding:.65rem 0;font-size:1rem;color:var(--text-2);border-bottom:1px solid rgba(26,39,68,.5);transition:color .2s}
+.nav-mob a:hover{color:var(--accent)}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:9rem 1.75rem 6rem;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background-image:radial-gradient(rgba(56,189,248,.05) 1px,transparent 1px);background-size:40px 40px;pointer-events:none}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 50%,#07090f 100%)}
+.hero-glow{position:absolute;top:-100px;left:-50px;width:600px;height:500px;background:radial-gradient(ellipse,rgba(56,189,248,.05),transparent 65%);pointer-events:none}
+.hero-content{position:relative;z-index:1;max-width:820px;margin:0 auto}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(52,211,153,.08);border:1px solid rgba(52,211,153,.2);border-radius:100px;padding:.35rem 1rem;font-family:var(--fm);font-size:.75rem;color:var(--green);margin-bottom:1.75rem;animation:fadeDown .6s var(--ease) both}
+.bdot{width:7px;height:7px;border-radius:50%;background:var(--green);animation:pulse 2s ease-in-out infinite}
+.hero-name{font-family:var(--fd);font-size:clamp(4rem,11vw,7.5rem);font-weight:800;line-height:.95;letter-spacing:-.04em;margin-bottom:1.4rem;animation:fadeUp .7s .1s var(--ease) both}
+.hero-role{font-family:var(--fm);font-size:clamp(.9rem,2vw,1.1rem);color:var(--text-2);margin-bottom:1.2rem;min-height:1.8em;animation:fadeUp .7s .2s var(--ease) both}
+.cursor{color:var(--accent);animation:blink 1s step-end infinite}
+.hero-tag{color:var(--text-3);font-size:.88rem;letter-spacing:.03em;margin-bottom:2.75rem;animation:fadeUp .7s .3s var(--ease) both}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:.85rem;animation:fadeUp .7s .4s var(--ease) both}
+.scroll-wrap{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);z-index:1}
+.scroll-line{width:1px;height:50px;background:linear-gradient(to bottom,var(--accent),transparent);animation:scrollPulse 2s ease-in-out infinite}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 360px;gap:3.5rem;align-items:start}
+.about-p{color:var(--text-2);margin-bottom:1.2rem;font-size:1.05rem;line-height:1.85}
+.about-p:last-child{margin-bottom:0}
+.facts{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--rl);padding:1.5rem;margin-bottom:1rem}
+.fact{display:flex;flex-direction:column;gap:.15rem;padding:.75rem 0;border-bottom:1px solid rgba(26,39,68,.6)}
+.fact:last-child{border-bottom:none;padding-bottom:0}
+.fact:first-child{padding-top:0}
+.fact-l{color:var(--text-3);font-family:var(--fm);font-size:.7rem;text-transform:uppercase;letter-spacing:.07em}
+.fact-v{color:var(--text-1);font-size:.95rem;font-weight:500}
+.alinks{display:flex;flex-wrap:wrap;gap:.6rem}
+.lpill{display:inline-block;padding:.45rem 1rem;border:1px solid var(--border);border-radius:100px;font-size:.85rem;color:var(--text-2);transition:all .2s}
+.lpill:hover{border-color:var(--accent);color:var(--accent)}
+
+/* EXPERIENCE */
+.exp{background:#0b1422;border:1px solid #253a5e;border-top:3px solid var(--accent);border-radius:var(--rl);padding:2.25rem;box-shadow:0 6px 40px rgba(0,0,0,.5)}
+.exp-top{display:flex;justify-content:space-between;align-items:flex-start;gap:2rem;margin-bottom:1.75rem}
+.exp-left{flex:1}
+.exp-pill{display:inline-block;font-family:var(--fm);font-size:.7rem;color:var(--accent);background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.2);padding:.22rem .7rem;border-radius:100px;margin-bottom:.75rem;letter-spacing:.04em}
+.exp-title{font-family:var(--fd);font-size:1.4rem;font-weight:700;color:#f1f5f9;margin-bottom:.3rem;line-height:1.2}
+.exp-co{font-size:1.05rem;font-weight:600;color:var(--accent);margin-bottom:.25rem}
+.exp-meta{font-family:var(--fm);font-size:.73rem;color:var(--text-3)}
+.exp-stat{flex-shrink:0;background:rgba(56,189,248,.07);border:1px solid rgba(56,189,248,.2);border-radius:12px;padding:1.1rem 1.5rem;text-align:center;min-width:140px}
+.est-label{display:block;font-family:var(--fm);font-size:.62rem;color:var(--text-3);text-transform:uppercase;letter-spacing:.09em;margin-bottom:.5rem}
+.est-val{display:block;font-family:var(--fd);font-size:2.4rem;font-weight:800;color:#f1f5f9;line-height:1;margin-bottom:.3rem}
+.est-sub{display:block;font-family:var(--fm);font-size:.62rem;color:var(--text-3);text-transform:uppercase;letter-spacing:.07em}
+.exp-div{height:1px;background:linear-gradient(to right,var(--accent),rgba(56,189,248,.1),transparent);margin-bottom:1.5rem}
+.exp-sum{color:var(--text-2);font-size:1rem;line-height:1.85;margin-bottom:1.4rem}
+.exp-ul{display:flex;flex-direction:column;gap:.7rem;margin-bottom:1.75rem;padding:0}
+.exp-ul li{color:var(--text-2);font-size:.93rem;line-height:1.75;padding-left:1.3rem;position:relative}
+.exp-ul li::before{content:'▸';position:absolute;left:0;color:var(--accent);font-size:.75rem;top:.2rem}
+.exp-tags{display:flex;flex-wrap:wrap;gap:.4rem;padding-top:1.25rem;border-top:1px solid rgba(26,39,68,.8)}
+
+/* PROJECTS */
+.pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.25rem}
+.pcard{background:var(--bg-elevated);border:1px solid var(--border);border-radius:var(--rl);padding:1.75rem;display:flex;flex-direction:column;gap:1rem;transition:transform .25s var(--ease),border-color .25s,box-shadow .25s;position:relative;overflow:hidden}
+.pcard::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--border);transition:background .25s}
+.pcard:hover{transform:translateY(-4px);border-color:rgba(56,189,248,.25);box-shadow:0 12px 40px rgba(0,0,0,.4)}
+.pcard:hover::before{background:var(--accent)}
+.pcard-feat{border-color:rgba(56,189,248,.2)}
+.pcard-feat::before{background:linear-gradient(90deg,var(--accent),#818cf8)}
+.ptop{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:.5rem}
+.pnum{font-family:var(--fm);font-size:.78rem;color:var(--text-3)}
+.pbadges{display:flex;gap:.4rem;flex-wrap:wrap}
+.ptitle{font-family:var(--fd);font-size:1.15rem;font-weight:700;color:var(--text-1);line-height:1.3}
+.pdesc{color:var(--text-2);font-size:.93rem;line-height:1.75;flex:1}
+.ptags{display:flex;flex-wrap:wrap;gap:.4rem}
+.pact{margin-top:auto}
+
+/* SKILLS */
+.sgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.25rem}
+.sgrp{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--rl);padding:1.4rem}
+.sgrp-t{font-family:var(--fm);font-size:.72rem;color:var(--accent);text-transform:uppercase;letter-spacing:.09em;margin-bottom:.9rem}
+.stags{display:flex;flex-wrap:wrap;gap:.5rem}
+
+/* CERTS */
+.cgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem}
+.ccard{background:var(--bg-elevated);border:1px solid var(--border);border-radius:var(--rl);padding:1.5rem;display:flex;align-items:center;gap:1.2rem;transition:all .25s var(--ease)}
+.ccard:hover{border-color:rgba(56,189,248,.25);transform:translateY(-2px)}
+.ccard-dim{opacity:.5;border-style:dashed}
+.cicon{font-size:1.8rem;flex-shrink:0}
+.cbody{flex:1}
+.ctitle{font-family:var(--fd);font-size:1rem;font-weight:700;color:var(--text-1);margin-bottom:.2rem}
+.cissuer{color:var(--text-2);font-size:.87rem}
+.cyear{font-family:var(--fm);color:var(--text-3);font-size:.73rem;margin-top:.2rem}
+
+/* CONTACT */
+.cntgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;max-width:860px}
+.cntcard{display:flex;align-items:center;gap:1rem;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--rl);padding:1.4rem 1.5rem;transition:all .25s var(--ease)}
+.cntcard:hover{border-color:rgba(56,189,248,.3);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.3)}
+.cnticon{font-family:var(--fm);font-size:.9rem;width:42px;height:42px;background:var(--accent-dim);border:1px solid rgba(56,189,248,.2);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--accent);flex-shrink:0}
+.cntlabel{font-size:.72rem;color:var(--text-3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:.2rem;font-family:var(--fm)}
+.cntval{color:var(--text-1);font-size:.92rem;font-weight:500}
+
+/* FOOTER */
+.footer{border-top:1px solid var(--border);padding:1.75rem 0}
+.finner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem}
+.fname{font-family:var(--fm);color:var(--accent);font-size:.8rem}
+.fcopy{color:var(--text-3);font-size:.8rem}
+.ftop{color:var(--text-3);font-family:var(--fm);font-size:.8rem;transition:color .2s}
+.ftop:hover{color:var(--accent)}
+
+@keyframes fadeDown{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.85)}}
+@keyframes scrollPulse{0%,100%{opacity:.4}50%{opacity:1}}
+
+@media(max-width:900px){.about-grid{grid-template-columns:1fr}}
+@media(max-width:768px){
+  .sec{padding:5rem 0}
+  .nav-links{display:none}
+  .nav-ham{display:flex}
+  .hero{padding:7.5rem 1.5rem 5rem}
+  .hero-ctas{flex-direction:column;align-items:flex-start}
+  .hero-ctas .btn{width:100%;justify-content:center}
+  .scroll-wrap{display:none}
+  .finner{flex-direction:column;text-align:center}
+}
+@media(max-width:600px){
+  .exp-top{flex-direction:column}
+  .exp-stat{width:100%;text-align:left}
+  .pgrid,.cgrid,.cntgrid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nb">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo">HK<span class="accent">.</span></a>
+    <ul class="nav-links">
+      <li><a href="#about" class="nav-link">About</a></li>
+      <li><a href="#experience" class="nav-link">Experience</a></li>
+      <li><a href="#projects" class="nav-link">Projects</a></li>
+      <li><a href="#skills" class="nav-link">Skills</a></li>
+      <li><a href="#certifications" class="nav-link">Certifications</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+    <button class="nav-ham" id="ham" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="nav-mob" id="mob">
+    <a href="#about" class="nav-mob">About</a>
+    <a href="#experience" class="nav-mob">Experience</a>
+    <a href="#projects" class="nav-mob">Projects</a>
+    <a href="#skills" class="nav-mob">Skills</a>
+    <a href="#certifications" class="nav-mob">Certifications</a>
+    <a href="#contact" class="nav-mob">Contact</a>
+  </div>
+</nav>
+
+<section class="hero" id="hero">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="hero-content">
+    <div class="hero-badge"><span class="bdot"></span><span class="mono">Available for Graduate Roles</span></div>
+    <h1 class="hero-name">Harry<br/><span class="accent">Klair</span></h1>
+    <p class="hero-role"><span class="mono">&gt; </span><span id="typed"></span><span class="cursor">|</span></p>
+    <p class="hero-tag">BSc Cyber Security &nbsp;·&nbsp; Penetration Testing &nbsp;·&nbsp; SOC &nbsp;·&nbsp; Azure Security &nbsp;·&nbsp; Defensive Cyber &nbsp;·&nbsp; Royal Signals Reserve</p>
+    <div class="hero-ctas">
+      <a href="#projects" class="btn btn-p">View Projects</a>
+      <a href="https://github.com/HarryKlrr" target="_blank" rel="noopener" class="btn btn-g">GitHub ↗</a>
+      <a href="#contact" class="btn btn-g">Contact Me</a>
+    </div>
+  </div>
+  <div class="scroll-wrap" aria-hidden="true"><div class="scroll-line"></div></div>
+</section>
+
+<section class="sec" id="about">
+  <div class="container">
+    <div class="slabel mono">// 01. ABOUT</div>
+    <h2 class="sheading reveal">About Me</h2>
+    <div class="about-grid">
+      <div class="reveal">
+        <p class="about-p">I'm a Cyber Security graduate from Nottingham Trent University, focused on building a career at the intersection of offensive security, cloud defence, and national security. My final year project involved deploying a virtualised IoT honeypot to capture and analyse over 550 automated authentication attempts in a controlled lab — giving me direct, hands-on experience with threat intelligence, log analysis, and Python-based data processing.</p>
+        <p class="about-p">I'm currently pursuing CompTIA Security+ and building a home lab covering SOC operations and Azure cloud security. Alongside my technical work, I'm pursuing a place in the Royal Signals Reserve — combining cyber expertise with military discipline, and working toward defence-cleared roles at the intersection of technical operations and national security.</p>
+        <p class="about-p">I bring the same discipline I apply in boxing and athletics to everything I do. I outwork the room.</p>
+      </div>
+      <div class="reveal">
+        <div class="facts">
+          <div class="fact"><span class="fact-l">Degree</span><span class="fact-v">BSc Cyber Security (Hons)</span></div>
+          <div class="fact"><span class="fact-l">University</span><span class="fact-v">Nottingham Trent University</span></div>
+          <div class="fact"><span class="fact-l">Focus</span><span class="fact-v">Pen Testing · SOC · Azure · Defence</span></div>
+          <div class="fact"><span class="fact-l">Location</span><span class="fact-v">United Kingdom</span></div>
+          <div class="fact"><span class="fact-l">Status</span><span class="fact-v" style="color:var(--green)">● Available for Roles</span></div>
+        </div>
+        <div class="alinks">
+          <a href="https://www.linkedin.com/in/harry-klair-4a993b224/" target="_blank" rel="noopener" class="lpill">LinkedIn ↗</a>
+          <a href="https://github.com/HarryKlrr" target="_blank" rel="noopener" class="lpill">GitHub ↗</a>
+          <a href="mailto:harryklair@hotmail.co.uk" class="lpill">Email ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-alt" id="experience">
+  <div class="container">
+    <div class="slabel mono">// 02. EXPERIENCE</div>
+    <h2 class="sheading reveal">Experience</h2>
+    <div class="exp reveal">
+      <div class="exp-top">
+        <div class="exp-left">
+          <div class="exp-pill">Freelance · Commercial Work</div>
+          <h3 class="exp-title">Digital Architect &amp; Commercial Consultant</h3>
+          <p class="exp-co">Klair Beauty Group</p>
+          <p class="exp-meta mono">Three Locations · Staffordshire · 2024 – Present</p>
+        </div>
+        <div class="exp-stat">
+          <span class="est-label">Annual Revenue</span>
+          <span class="est-val">£100k<span class="accent">+</span></span>
+          <span class="est-sub">net</span>
+        </div>
+      </div>
+      <div class="exp-div"></div>
+      <p class="exp-sum">Independently designed and built the entire digital presence for a family-owned beauty business operating across three legally distinct entities. Solely responsible for architecture, frontend development, ecommerce strategy, commercial consulting, and ongoing digital operations.</p>
+      <ul class="exp-ul">
+        <li>Architected three completely separate brand identities and websites for three legally distinct business entities, maintaining full compliance across sole trader and limited company structures</li>
+        <li>Built a standalone ecommerce skincare store with a full product catalogue, live cart system, loyalty points mechanic, subscription/repeat purchase flow, and Fresha booking integration</li>
+        <li>Integrated Formspree booking systems across all three salon sites with automated email routing per business entity</li>
+        <li>Deployed all sites on separate domains via Netlify, maintaining deliberate hosting separation to preserve legal and brand integrity across entities</li>
+        <li>Developed full commercial strategy covering wholesale margin analysis, customer retention mechanics, pricing architecture, and a digital training concept projected to significantly increase revenue</li>
+      </ul>
+      <div class="exp-tags">
+        <span class="tag">HTML / CSS / JS</span><span class="tag">Netlify</span><span class="tag">Ecommerce</span>
+        <span class="tag">Shopify</span><span class="tag">Domain Management</span><span class="tag">Formspree</span>
+        <span class="tag">Commercial Strategy</span><span class="tag">Data Handling</span><span class="tag">Form Security</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="projects">
+  <div class="container">
+    <div class="slabel mono">// 03. PROJECTS</div>
+    <h2 class="sheading reveal">Projects</h2>
+    <p class="ssub reveal">Hands-on security labs and research. Each project is documented with full methodology, tools, and findings.</p>
+    <div class="pgrid">
+      <div class="pcard reveal">
+        <div class="ptop"><span class="pnum mono">01</span><span class="badge bc">Completed</span></div>
+        <h3 class="ptitle">SOC Detection Lab</h3>
+        <p class="pdesc">A home lab built to simulate real-world SOC operations. Deployed Kali Linux against Windows and Linux targets, executed attack scenarios, collected and analysed logs via Wazuh and Splunk, and produced professional incident reports documenting detection logic, alert tuning, and response playbooks.</p>
+        <div class="ptags"><span class="tag">Kali Linux</span><span class="tag">Wazuh</span><span class="tag">Splunk</span><span class="tag">SIEM</span><span class="tag">Incident Response</span><span class="tag">MITRE ATT&CK</span></div>
+        <div class="pact"><a href="https://github.com/HarryKlrr/soc-detection-lab" target="_blank" rel="noopener" class="btn-s">View GitHub ↗</a></div>
+      </div>
+      <div class="pcard reveal">
+        <div class="ptop"><span class="pnum mono">02</span><span class="badge bp">In Progress</span></div>
+        <h3 class="ptitle">Azure Cloud Security Lab</h3>
+        <p class="pdesc">A cloud security project on Microsoft Azure covering Entra ID identity management, Microsoft Sentinel SIEM configuration, Defender for Cloud hardening, IAM policy design, logging pipelines, and misconfiguration detection. Includes documented remediation steps and security baseline guides.</p>
+        <div class="ptags"><span class="tag">Microsoft Azure</span><span class="tag">Entra ID</span><span class="tag">Sentinel</span><span class="tag">Defender</span><span class="tag">IAM</span><span class="tag">Cloud Hardening</span></div>
+        <div class="pact"><a href="https://github.com/HarryKlrr/azure-cloud-security-lab" target="_blank" rel="noopener" class="btn-s">View GitHub ↗</a></div>
+      </div>
+      <div class="pcard pcard-feat reveal">
+        <div class="ptop"><span class="pnum mono">03</span><div class="pbadges"><span class="badge bf">Featured · FYP</span><span class="badge bc">Completed</span></div></div>
+        <h3 class="ptitle">IoT Honeypot &amp; Threat Analysis</h3>
+        <p class="pdesc">Final Year Project. Designed and deployed a virtualised IoT honeypot using Cowrie on VirtualBox to capture automated attacker behaviour in an isolated lab. Analysed 552 authentication attempts with a 98.4% failure rate, traced the attacker credential dictionary directly to the Mirai IoT botnet, and automated threat reporting via a custom Python analysis tool.</p>
+        <div class="ptags"><span class="tag">Cowrie</span><span class="tag">Kali Linux</span><span class="tag">Python</span><span class="tag">VirtualBox</span><span class="tag">Threat Intelligence</span><span class="tag">Log Analysis</span></div>
+        <div class="pact"><a href="https://github.com/HarryKlrr/iot-honeypot" target="_blank" rel="noopener" class="btn-sa">View GitHub ↗</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-alt" id="skills">
+  <div class="container">
+    <div class="slabel mono">// 04. SKILLS</div>
+    <h2 class="sheading reveal">Skills</h2>
+    <div class="sgrid">
+      <div class="sgrp reveal"><h3 class="sgrp-t">Security</h3><div class="stags"><span class="stag">Penetration Testing</span><span class="stag">Vulnerability Assessment</span><span class="stag">Threat Analysis</span><span class="stag">SIEM</span><span class="stag">IDS / IPS</span><span class="stag">Incident Response</span><span class="stag">Honeypots</span><span class="stag">OSINT</span></div></div>
+      <div class="sgrp reveal"><h3 class="sgrp-t">Cloud &amp; Infrastructure</h3><div class="stags"><span class="stag">Microsoft Azure</span><span class="stag">Entra ID</span><span class="stag">Microsoft Sentinel</span><span class="stag">Defender for Cloud</span><span class="stag">IAM</span><span class="stag">Networking</span><span class="stag">VirtualBox</span><span class="stag">Linux</span></div></div>
+      <div class="sgrp reveal"><h3 class="sgrp-t">Tools</h3><div class="stags"><span class="stag">Kali Linux</span><span class="stag">Nmap</span><span class="stag">Metasploit</span><span class="stag">Wireshark</span><span class="stag">Wazuh</span><span class="stag">Splunk</span><span class="stag">Cowrie</span><span class="stag">Burp Suite</span></div></div>
+      <div class="sgrp reveal"><h3 class="sgrp-t">Programming</h3><div class="stags"><span class="stag">Python</span><span class="stag">Bash</span><span class="stag">HTML / CSS</span><span class="stag">JavaScript</span></div></div>
+      <div class="sgrp reveal"><h3 class="sgrp-t">Frameworks</h3><div class="stags"><span class="stag">MITRE ATT&CK</span><span class="stag">NIST CSF</span><span class="stag">ISO 27001</span><span class="stag">Cyber Kill Chain</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="certifications">
+  <div class="container">
+    <div class="slabel mono">// 05. CERTIFICATIONS</div>
+    <h2 class="sheading reveal">Certifications</h2>
+    <div class="cgrid">
+      <div class="ccard reveal"><div class="cicon">🎓</div><div class="cbody"><h3 class="ctitle">BSc Cyber Security (Hons)</h3><p class="cissuer">Nottingham Trent University</p><p class="cyear mono">2023 – 2026</p></div><span class="badge bc">Achieved</span></div>
+      <div class="ccard reveal"><div class="cicon">🛡️</div><div class="cbody"><h3 class="ctitle">CompTIA Security+</h3><p class="cissuer">CompTIA</p><p class="cyear mono">2026</p></div><span class="badge bp">In Progress</span></div>
+      <div class="ccard ccard-dim reveal"><div class="cicon">🎯</div><div class="cbody"><h3 class="ctitle">Next Certification</h3><p class="cissuer">CEH · SC-200 · OSCP</p><p class="cyear mono">Coming Soon</p></div><span class="badge bpl">Planned</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-alt" id="contact">
+  <div class="container">
+    <div class="slabel mono">// 06. CONTACT</div>
+    <h2 class="sheading reveal">Get In Touch</h2>
+    <p class="ssub reveal">Open to graduate roles, internships, and conversations about cyber security. Drop me an email or connect on LinkedIn.</p>
+    <div class="cntgrid reveal">
+      <a href="mailto:harryklair@hotmail.co.uk" class="cntcard"><span class="cnticon mono">@</span><div><p class="cntlabel">Email</p><p class="cntval">harryklair@hotmail.co.uk</p></div></a>
+      <a href="https://www.linkedin.com/in/harry-klair-4a993b224/" target="_blank" rel="noopener" class="cntcard"><span class="cnticon mono">in</span><div><p class="cntlabel">LinkedIn</p><p class="cntval">Connect with me ↗</p></div></a>
+      <a href="https://github.com/HarryKlrr" target="_blank" rel="noopener" class="cntcard"><span class="cnticon mono">{}</span><div><p class="cntlabel">GitHub</p><p class="cntval">View my work ↗</p></div></a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container finner">
+    <span class="fname mono">Harry Klair</span>
+    <span class="fcopy">Built by hand · Hosted on GitHub Pages</span>
+    <a href="#hero" class="ftop mono">↑ Back to top</a>
+  </div>
+</footer>
+
+<script>
+const roles=['Cyber Security Graduate','Penetration Tester','SOC Analyst','Defensive Cyber','Azure Security','Royal Signals Reserve'];
+let ri=0,ci=0,del=false;
+const el=document.getElementById('typed');
+function type(){
+  const w=roles[ri];
+  el.textContent=del?w.slice(0,ci-1):w.slice(0,ci+1);
+  del?ci--:ci++;
+  let s=del?45:80;
+  if(!del&&ci===w.length){s=1800;del=true}
+  else if(del&&ci===0){del=false;ri=(ri+1)%roles.length;s=400}
+  setTimeout(type,s);
+}
+setTimeout(type,1000);
+
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');obs.unobserve(x.target)}})},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(e=>obs.observe(e));
+document.querySelectorAll('.pgrid,.sgrid,.cgrid,.cntgrid').forEach(g=>{Array.from(g.children).forEach((c,i)=>c.style.transitionDelay=i*80+'ms')});
+
+const ham=document.getElementById('ham');
+const mob=document.getElementById('mob');
+ham.addEventListener('click',()=>{ham.classList.toggle('open');mob.classList.toggle('open')});
+mob.querySelectorAll('a').forEach(l=>l.addEventListener('click',()=>{ham.classList.remove('open');mob.classList.remove('open')}));
+
+const secs=document.querySelectorAll('section[id]');
+const links=document.querySelectorAll('.nav-link');
+function updateNav(){
+  const y=window.scrollY+80;
+  secs.forEach(s=>{if(y>=s.offsetTop&&y<s.offsetTop+s.offsetHeight){links.forEach(l=>{l.classList.remove('active');if(l.getAttribute('href')==='#'+s.id)l.classList.add('active')})}});
+}
+window.addEventListener('scroll',updateNav,{passive:true});
+updateNav();
+
+const nb=document.getElementById('nb');
+window.addEventListener('scroll',()=>{nb.style.background=window.scrollY>40?'rgba(7,9,15,.98)':'rgba(7,9,15,.9)';},{passive:true});
+
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(!t)return;e.preventDefault();
+    window.scrollTo({top:t.getBoundingClientRect().top+window.scrollY-64,behavior:'smooth'});
+  });
+});
+</script>
+</body>
+</html>
