@@ -4,11 +4,11 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Harry Klair | SOC Analyst</title>
-<meta name="description" content="Harry Klair — SC-cleared BSc Cyber Security graduate targeting SOC analyst roles. Detection engineering, log analysis, incident documentation, and a live IT helpdesk."/>
+<meta name="description" content="Harry Klair — SOC Analyst · Blue Team · SC Cleared. Cyber Security graduate with a Wazuh detection lab, nine documented incident reports, and a live Jira helpdesk."/>
 
 <meta property="og:type" content="website"/>
 <meta property="og:title" content="Harry Klair | SOC Analyst"/>
-<meta property="og:description" content="SC-cleared Cyber Security graduate. Detection labs, incident reports, and a live ticketed helpdesk at HJ Digital Solutions."/>
+<meta property="og:description" content="SOC Analyst · Blue Team · SC Cleared. Wazuh detection lab, nine incident reports, and a live Jira helpdesk at HJ Digital Solutions."/>
 <meta property="og:url" content="https://harryklrr.github.io/"/>
 <meta property="og:image" content="https://harryklrr.github.io/assets/og.png"/>
 <meta name="twitter:card" content="summary_large_image"/>
@@ -189,10 +189,10 @@ body{background:var(--bg);color:var(--t1);font-family:var(--fb);font-size:1rem;l
 .ev:hover{border-color:var(--acc-line);transform:translateY(-3px)}
 .shot{position:relative;background:var(--bg);border-bottom:1px solid var(--line);aspect-ratio:16/10;overflow:hidden}
 .shot img{width:100%;height:100%;object-fit:cover;object-position:top center}
-.shot:has(img) .ph{display:none}
-.ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.55rem;padding:1.5rem;text-align:center;border:1px dashed var(--line-2);border-radius:var(--rl);margin:.6rem}
-.ph-f{font-family:var(--fm);font-size:.7rem;color:var(--acc);background:var(--acc-dim);border:1px solid var(--acc-line);border-radius:4px;padding:.2rem .55rem;word-break:break-all}
-.ph-t{font-size:.8rem;color:var(--t3);line-height:1.6;max-width:34ch}
+/* The Jira queue screenshot is about 4.4:1, so it sits inside the frame whole
+   instead of being cropped down to its left-hand third. */
+.shot-fit{aspect-ratio:3/1}
+.shot-fit img{object-fit:contain;object-position:center;padding:.4rem}
 /* Zoom affordance — only on slots that actually have an image */
 .shot:has(img){cursor:zoom-in}
 .shot img{transition:transform .45s var(--e)}
@@ -251,6 +251,7 @@ body{background:var(--bg);color:var(--t1);font-family:var(--fb);font-size:1rem;l
 .sgrp{background:var(--bg-1);border:1px solid var(--line);border-radius:var(--rl);padding:1.3rem}
 .sgrp-t{font-family:var(--fm);font-size:.7rem;color:var(--acc);text-transform:uppercase;letter-spacing:.09em;margin-bottom:.85rem}
 .stags{display:flex;flex-wrap:wrap;gap:.45rem}
+.stag em{font-style:normal;color:var(--t3);font-size:.92em}
 
 /* CERTS */
 .cgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(275px,1fr));gap:1.15rem}
@@ -339,12 +340,12 @@ body{background:var(--bg);color:var(--t1);font-family:var(--fb);font-size:1rem;l
   <div class="hero-c">
     <div class="hero-badge"><span class="bdot"></span><span>Available now &mdash; UK, on-site or hybrid</span></div>
     <h1 class="hero-name">Harry Klair</h1>
-    <p class="hero-role">SOC Analyst</p>
-    <p class="hero-line">Cyber Security graduate with SC clearance, a home detection lab mapped to MITRE ATT&amp;CK, and a live IT helpdesk I co-founded &mdash; where I work real tickets through Jira Service Management every week.</p>
+    <p class="hero-role">SOC Analyst &middot; Blue Team &middot; SC Cleared</p>
+    <p class="hero-line">Cyber Security graduate. I built a Wazuh detection lab at home, and I co-run a small IT support business, so most weeks I'm either writing detections or working a ticket queue.</p>
     <div class="creds">
       <span class="cred"><b>SC</b> Security Cleared</span>
       <span class="cred"><b>BPSS</b> Cleared</span>
-      <span class="cred"><b>BSc</b> Cyber Security (Hons)</span>
+      <span class="cred"><b>BSc</b> Cyber Security &mdash; 2:1</span>
       <span class="cred"><b>Sec+</b> In Progress</span>
       <span class="cred"><b>Co-founder</b> HJ Digital Solutions</span>
     </div>
@@ -363,10 +364,10 @@ body{background:var(--bg);color:var(--t1);font-family:var(--fb);font-size:1rem;l
 <section class="proof" aria-label="Key figures">
   <div class="container">
     <div class="proof-grid">
-      <div class="pstat"><div class="pstat-v">552</div><div class="pstat-l">Authentication attempts<br/>captured &amp; analysed</div></div>
-      <div class="pstat"><div class="pstat-v">9</div><div class="pstat-l">Attack scenarios detected<br/>&amp; formally reported</div></div>
-      <div class="pstat"><div class="pstat-v">98.4%</div><div class="pstat-l">Brute-force failure rate &mdash;<br/>the fingerprint of automation</div></div>
-      <div class="pstat"><div class="pstat-v accent">SC</div><div class="pstat-l">Security clearance<br/>held, plus BPSS</div></div>
+      <div class="pstat"><div class="pstat-v">552</div><div class="pstat-l">Login attempts logged<br/>and analysed in my honeypot</div></div>
+      <div class="pstat"><div class="pstat-v">9</div><div class="pstat-l">Attack scenarios run,<br/>detected and written up</div></div>
+      <div class="pstat"><div class="pstat-v">2</div><div class="pstat-l">Detection gaps I found<br/>in my own lab, and fixed</div></div>
+      <div class="pstat"><div class="pstat-v accent">SC</div><div class="pstat-l">Security clearance held,<br/>plus BPSS</div></div>
     </div>
   </div>
 </section>
@@ -375,13 +376,14 @@ body{background:var(--bg);color:var(--t1);font-family:var(--fb);font-size:1rem;l
 <section class="sec" id="about">
   <div class="container">
     <div class="slabel mono">// 01. ABOUT</div>
-    <h2 class="sheading reveal">Why a SOC, and why me</h2>
+    <h2 class="sheading reveal">About me</h2>
     <div class="about-grid">
       <div class="reveal">
-        <p class="about-p">I'm a Cyber Security graduate from Nottingham Trent University aiming squarely at <strong>SOC analyst work</strong> &mdash; triage, log analysis, detection, and writing up what actually happened so the next person doesn't have to guess.</p>
-        <p class="about-p">Most of my degree was spent building things rather than reading about them. I deployed a Cowrie honeypot posing as an IoT device and captured <strong>552 authentication attempts</strong> &mdash; 7 of the 10 usernames and 9 of the 20 passwords matched the credential dictionary hard-coded into the original Mirai botnet source. I built a home SOC on Wazuh and Sysmon, ran <strong>nine attack scenarios</strong> against a Windows 10 target, and wrote nine formal incident reports mapping each detection to MITRE ATT&amp;CK.</p>
-        <p class="about-p">Alongside that I co-founded <strong><a href="https://hjdigitalsolutions.co.uk" target="_blank" rel="noopener" class="accent">HJ Digital Solutions</a></strong>, a UK IT support business. Everything runs through Jira Service Management &mdash; ticket raised, triaged, worked, documented, closed. It is the closest thing to a live queue I could build for myself, and the habits are the same ones a SOC runs on: work the ticket, record what you did, escalate honestly when it's beyond you.</p>
-        <p class="about-p">I hold <strong>SC clearance and BPSS</strong>, both obtained to work on a cleared logistics contract at GXO. I'm working toward CompTIA Security+, active on Hack The Box in my own time, and my Royal Signals Reserve application has been accepted &mdash; currently at the medical stage. I bring the same discipline from boxing and athletics to everything else. I outwork the room.</p>
+        <p class="about-p">I finished a Cyber Security degree at Nottingham Trent this year and I'm looking for a <strong>SOC analyst role</strong>. The parts of the job I want are triage, log analysis, and writing the thing up properly afterwards so nobody has to redo the work.</p>
+        <p class="about-p">Most of my degree went on building things. For my final year project I set up a Cowrie honeypot dressed up as an IoT device on an isolated network, then attacked it myself from Kali using IoT default-credential wordlists. It logged <strong>552 login attempts</strong>. The volume wasn't the interesting bit, since I generated it. What was interesting is that 7 of the 10 usernames and 9 of the 20 passwords I used are hard-coded in the original Mirai source, including <code>xc3511</code> for XiongMai cameras. It was a contained lab study rather than real internet traffic, and my report says so.</p>
+        <p class="about-p">Separately I built a home SOC on Wazuh and Sysmon against a Windows 10 box, ran <strong>nine attack scenarios</strong>, and wrote an incident report for each one mapped to MITRE ATT&amp;CK. Two of my detections didn't fire when they should have. Both of those are in the repo with a note on what went wrong, because working out why a rule stayed silent taught me more than the seven that worked.</p>
+        <p class="about-p">I also co-run <strong><a href="https://hjdigitalsolutions.co.uk" target="_blank" rel="noopener" class="accent">HJ Digital Solutions</a></strong>, a small UK IT support business. Every job goes through Jira Service Management and gets a written resolution before it's closed. It's the nearest thing to a real queue I could set up for myself.</p>
+        <p class="about-p">I hold <strong>SC clearance and BPSS</strong>, both from a cleared contract at GXO. I'm working through CompTIA Security+, I'm on Hack The Box most weeks, and my Royal Signals Reserve application has been accepted. I box and train most days, and I bring the same thing to this. I outwork the room.</p>
       </div>
       <div class="reveal">
         <div class="facts">
@@ -407,19 +409,19 @@ body{background:var(--bg);color:var(--t1);font-family:var(--fb);font-size:1rem;l
   <div class="container">
     <div class="slabel mono">// 02. EXPERIENCE</div>
     <h2 class="sheading reveal">Experience</h2>
-    <p class="ssub reveal">A live ticketed helpdesk I co-founded, and a security-cleared logistics contract &mdash; both places where other people are relying on me to get it right and to write down what I did.</p>
+    <p class="ssub reveal">A ticketed helpdesk I co-run, and a cleared logistics contract. In both, someone else is waiting on me to get it right and to write down what I did.</p>
 
     <!-- ── HJ DIGITAL SOLUTIONS ── -->
     <div class="exp reveal">
       <div class="exp-top">
         <div class="exp-left">
           <div class="exp-pill">Co-founder &middot; Live business</div>
-          <h3 class="exp-title">Co-founder &amp; Support Analyst</h3>
+          <h3 class="exp-title">Co-founder &amp; IT Support Analyst</h3>
           <p class="exp-co"><a href="https://hjdigitalsolutions.co.uk" target="_blank" rel="noopener">HJ Digital Solutions ↗</a></p>
           <p class="exp-meta mono">UK &middot; Remote IT support &middot; 2026 – Present</p>
         </div>
-        <!-- Once you have a real ticket count, swap "Live" for the number and
-             "Jira Service Desk" for "tickets worked". A number is far stronger. -->
+        <!-- Swap "Live" for the real resolved-ticket count once it's worth
+             quoting. A number beats a status word. -->
         <div class="exp-stat">
           <span class="est-l">Support desk</span>
           <span class="est-v">Live</span>
@@ -427,14 +429,14 @@ body{background:var(--bg);color:var(--t1);font-family:var(--fb);font-size:1rem;l
         </div>
       </div>
       <div class="exp-div"></div>
-      <p class="exp-sum">A two-person UK IT support business co-founded with Justin Dzanjalimodzi. Every request is raised, tracked and closed through Jira Service Management &mdash; no untracked side channels, no email queue nobody is watching. I work tickets alongside Justin and own the entire customer-facing web presence.</p>
+      <p class="exp-sum">A two-person IT support business I set up with Justin Dzanjalimodzi. Every request goes through Jira Service Management, so there's no side channel and no inbox nobody is watching. I work tickets alongside Justin and I look after the whole customer-facing website.</p>
       <ul class="exp-ul">
-        <li><strong>Ticket triage and resolution</strong> &mdash; take inbound requests through Jira Service Management, diagnose, resolve, and write up the fix so the next person can follow it</li>
-        <li><strong>Security-adjacent support</strong> &mdash; phishing and suspicious-email triage, account compromise checks, and basic hardening advice for small business Microsoft 365 tenants</li>
-        <li><strong>Remote sessions</strong> &mdash; conduct supervised remote support with explicit customer consent; SC clearance is part of why customers are willing to grant that access</li>
-        <li><strong>Escalation discipline</strong> &mdash; a written scope boundary means anything beyond our capability gets an honest referral rather than an expensive detour</li>
-        <li><strong>Built and maintain the full website</strong> &mdash; eight-page static site, WCAG 2.1 AA verified contrast, keyboard-navigable, fully usable with JavaScript disabled, deployed on Cloudflare Pages</li>
-        <li><strong>Single front door by design</strong> &mdash; the support portal URL exists in exactly one place in the codebase, so there is no risk of a stale link surviving on a forgotten page</li>
+        <li><strong>Ticket triage and resolution.</strong> I take inbound requests, work out what's actually wrong, fix it, and write up the fix so the next person can follow it</li>
+        <li><strong>Security-adjacent work.</strong> Phishing and suspicious-email triage, checking whether an account has been compromised, and basic hardening advice for small business Microsoft 365 tenants</li>
+        <li><strong>Remote sessions</strong> with explicit customer consent before anyone connects to anything</li>
+        <li><strong>Knowing where the line is.</strong> We wrote down what we will and won't take on, so anything past that gets an honest referral instead of us guessing at it</li>
+        <li><strong>Built and maintain the site.</strong> Eight pages, contrast checked against WCAG 2.1 AA, keyboard navigable, still usable with JavaScript off, on Cloudflare Pages</li>
+        <li><strong>One route in.</strong> The Jira portal URL exists in exactly one file, so there's nothing stale to leave behind on a page we forgot about</li>
       </ul>
       <div class="exp-tags">
         <span class="tag">Jira Service Management</span><span class="tag">Ticket Triage</span><span class="tag">Incident Documentation</span>
@@ -462,12 +464,13 @@ body{background:var(--bg);color:var(--t1);font-family:var(--fb);font-size:1rem;l
         </div>
       </div>
       <div class="exp-div"></div>
-      <p class="exp-sum">A clearance-gated logistics contract &mdash; my BPSS and SC clearance were obtained to work on it. Alongside the operational floor work I own the data side: transactional entry into the <strong>warehouse management system (WMS)</strong>, and reconciling inbound consignments against their system records.</p>
+      <p class="exp-sum">This is where my BPSS and SC clearance came from. It's a clearance-gated contract, and alongside the floor work I handle the data side: entering stock and consignment movements into the <strong>warehouse management system</strong>, and checking inbound deliveries against what the system says should have arrived.</p>
       <ul class="exp-ul">
-        <li><strong>Vetted to SC standard</strong> for a clearance-gated contract, operating under the access-control, data-handling and site-security requirements that apply on a cleared site</li>
-        <li><strong>Transactional data entry into an enterprise WMS</strong> &mdash; the system of record for stock and consignment movement. What I key in is read downstream by other users and reports, so accuracy at the point of input is the entire job</li>
-        <li><strong>Reconciliation and exception handling</strong> &mdash; validating inbound consignments against their system records and dispatch documentation, identifying variances between physical and system state, and raising them as exceptions rather than letting bad data into the system</li>
-        <li><strong>Working a queue under volume</strong> to fixed daily throughput targets without trading accuracy for speed &mdash; structurally the same trade-off as a SOC queue: resolve what you can, escalate what you can't, and leave a record either way</li>
+        <li><strong>Cleared to SC for this contract</strong>, working under the access-control, data-handling and site-security rules that come with a cleared site</li>
+        <li><strong>Data entry into an enterprise WMS</strong>, which is the system of record for everything moving through the site. What I key in gets read later by other people and by reports, so getting it right at the point of entry is most of the job</li>
+        <li><strong>Reconciliation and exception handling.</strong> I check inbound consignments against their system records and dispatch paperwork, and where the physical stock and the system disagree I raise it rather than keying it in anyway</li>
+        <li><strong>Document control and following the procedure</strong> on goods-in and dispatch, on a site where the records get audited afterwards</li>
+        <li>Fixed daily throughput targets, without letting the accuracy slip to hit them</li>
       </ul>
       <div class="exp-tags">
         <span class="tag">SC Cleared</span><span class="tag">Enterprise WMS</span><span class="tag">System of Record</span>
@@ -483,16 +486,16 @@ body{background:var(--bg);color:var(--t1);font-family:var(--fb);font-size:1rem;l
   <div class="container">
     <div class="slabel mono">// 03. PROJECTS</div>
     <h2 class="sheading reveal">Security projects</h2>
-    <p class="ssub reveal">Labs built from scratch, attacked deliberately, and documented properly. Each one produced written output, not just a working install.</p>
+    <p class="ssub reveal">Three labs I built, attacked on purpose, and wrote up. Each one had to produce something written at the end, not just a working install.</p>
     <div class="pgrid">
 
       <div class="pcard pcard-feat reveal">
         <div class="ptop"><span class="pnum mono">01</span><div class="pbadges"><span class="badge b-feat">Most SOC-relevant</span><span class="badge b-done">Completed</span></div></div>
         <h3 class="ptitle">SOC Detection Lab</h3>
-        <p class="pdesc">A home SOC built to run the analyst workflow end to end. Kali Linux launched nine attack scenarios against a Windows 10 target; Wazuh and Sysmon collected the telemetry; I triaged each alert, mapped it to a MITRE ATT&amp;CK technique, and wrote it up. Two genuine detection gaps surfaced along the way &mdash; a missing log-forwarding rule and a custom rule that silently never fired. Both are documented in the repo rather than quietly written out of the story.</p>
+        <p class="pdesc">A home SOC set up to run the whole analyst workflow. I attacked a Windows 10 box from Kali nine different ways, collected the telemetry with Wazuh and Sysmon, then triaged each alert, mapped it to an ATT&amp;CK technique and wrote it up. Two of my detections didn't work: one host wasn't forwarding its logs, and a custom rule I'd written never fired at all. Both are in the repo with what I found, because that was the useful part.</p>
         <div class="pout">
           <span class="pout-l mono">Output</span>
-          <span class="pout-v">9 incident reports across 9 ATT&amp;CK techniques, 3 response playbooks, validated Wazuh rules and Sigma drafts.</span>
+          <span class="pout-v">Nine incident reports covering nine ATT&amp;CK techniques, three response playbooks, plus the Wazuh rules I validated and some Sigma drafts.</span>
         </div>
         <div class="ptags"><span class="tag">Wazuh</span><span class="tag">Sysmon</span><span class="tag">SIEM</span><span class="tag">Alert Triage</span><span class="tag">MITRE ATT&amp;CK</span><span class="tag">Incident Response</span></div>
         <div class="pact"><a href="https://github.com/HarryKlrr/soc-detection-lab" target="_blank" rel="noopener" class="btn-sa">View on GitHub ↗</a></div>
@@ -501,10 +504,10 @@ body{background:var(--bg);color:var(--t1);font-family:var(--fb);font-size:1rem;l
       <div class="pcard reveal">
         <div class="ptop"><span class="pnum mono">02</span><div class="pbadges"><span class="badge b-feat">Final Year Project</span><span class="badge b-done">Completed</span></div></div>
         <h3 class="ptitle">IoT Honeypot &amp; Threat Analysis</h3>
-        <p class="pdesc">A Cowrie SSH/Telnet honeypot configured to impersonate an IoT device inside an isolated VirtualBox network, with dictionary attacks driven from Kali. I wrote a Python pipeline to parse the raw Cowrie JSON and turn it into a ranked, reportable dataset. Contained lab study, not an internet-facing capture &mdash; and the report says so.</p>
+        <p class="pdesc">A Cowrie honeypot set up to look like a vulnerable IoT device on an isolated VirtualBox network, exposing SSH and Telnet. I ran the dictionary attacks against it myself from Kali, then wrote a Python pipeline to parse the Cowrie JSON into something I could rank and report on. It was a contained lab, not an internet-facing capture, and my report is explicit about that.</p>
         <div class="pout">
           <span class="pout-l mono">Finding</span>
-          <span class="pout-v">552 attempts at a 98.4% failure rate. 7 of 10 usernames and 9 of 20 passwords match the Mirai source dictionary &mdash; including <code>xc3511</code> (XiongMai cameras) and <code>vizxv</code> (Dahua DVRs).</span>
+          <span class="pout-v">552 attempts, 98.4% of them rejected. 7 of the 10 usernames and 9 of the 20 passwords I used are in the Mirai source dictionary, including <code>xc3511</code> for XiongMai cameras and <code>vizxv</code> for Dahua DVRs.</span>
         </div>
         <div class="ptags"><span class="tag">Cowrie</span><span class="tag">Python</span><span class="tag">Log Analysis</span><span class="tag">Threat Intelligence</span><span class="tag">VirtualBox</span></div>
         <div class="pact"><a href="https://github.com/HarryKlrr/iot-honeypot" target="_blank" rel="noopener" class="btn-s">View on GitHub ↗</a></div>
@@ -513,10 +516,10 @@ body{background:var(--bg);color:var(--t1);font-family:var(--fb);font-size:1rem;l
       <div class="pcard reveal">
         <div class="ptop"><span class="pnum mono">03</span><span class="badge b-live">In Progress</span></div>
         <h3 class="ptitle">Azure Cloud Security Lab</h3>
-        <p class="pdesc">Cloud-side detection on Microsoft Azure: Entra ID identity configuration, Microsoft Sentinel as the SIEM, Defender for Cloud hardening, IAM policy design and log ingestion pipelines &mdash; then deliberately introducing misconfigurations to see what Sentinel actually catches.</p>
+        <p class="pdesc">The same idea as the Wazuh lab, moved into a cloud tenant. Entra ID, Sentinel as the SIEM, Defender for Cloud for posture. The tenant is built and logs are flowing; the detection content isn't finished yet. I'd rather say that than pad the repo out and call it done.</p>
         <div class="pout">
-          <span class="pout-l mono">Target output</span>
-          <span class="pout-v">Documented remediation steps and a security baseline guide, plus KQL hunting queries for each misconfiguration class.</span>
+          <span class="pout-l mono">Where it's up to</span>
+          <span class="pout-v">Tenant and workspace built, sign-in and audit logs ingesting. Misconfigurations and KQL hunting queries in progress. Progress table is in the repo.</span>
         </div>
         <div class="ptags"><span class="tag">Microsoft Sentinel</span><span class="tag">Entra ID</span><span class="tag">Defender for Cloud</span><span class="tag">KQL</span><span class="tag">IAM</span></div>
         <div class="pact"><a href="https://github.com/HarryKlrr/azure-cloud-security-lab" target="_blank" rel="noopener" class="btn-s">View on GitHub ↗</a></div>
@@ -544,11 +547,11 @@ body{background:var(--bg);color:var(--t1);font-family:var(--fb);font-size:1rem;l
   <div class="container">
     <div class="slabel mono">// 04. EVIDENCE</div>
     <h2 class="sheading reveal">Evidence of work</h2>
-    <p class="ssub reveal">Anyone can list tools. This is what the work actually looked like &mdash; the alerts as they fired, the queries that found them, and the raw telemetry underneath. Every lab screenshot below is also in the public repo it came from, with the full incident report beside it.</p>
+    <p class="ssub reveal">Screenshots from the labs and from the helpdesk. Every lab image below is also in the public repo it came from, with the full incident report sitting next to it. Click any of them to see it full size.</p>
 
     <div class="ev-note reveal">
       <span class="ev-note-i mono">[i]</span>
-      <p>Lab screenshots are unredacted because the environments are isolated and mine &mdash; the <code>192.168.56.0/24</code> addresses are host-only VirtualBox networks with no route to the internet. Customer screenshots from HJ Digital Solutions are redacted before publication: names, email addresses, hostnames, IP addresses and device identifiers removed.</p>
+      <p>The helpdesk screenshot is redacted. Customer email addresses are covered with a solid fill rather than a blur, because a blur can sometimes be undone. Ticket references, statuses and dates are left alone. The lab screenshots aren't redacted because those environments are mine and isolated, and the <code>192.168.56.0/24</code> addresses in them are host-only VirtualBox networks with no route out.</p>
     </div>
 
     <div class="evgrid">
@@ -556,108 +559,66 @@ body{background:var(--bg);color:var(--t1);font-family:var(--fb);font-size:1rem;l
       <figure class="ev reveal">
         <div class="shot">
           <img src="assets/evidence/wazuh-triage.png" alt="Wazuh threat hunting view filtered to Windows Event 4625, showing repeated logon failures escalating from rule 60122 to rule 60204" onerror="this.remove()"/>
-          <div class="ph">
-            <span class="ph-f">assets/evidence/wazuh-triage.png</span>
-            <p class="ph-t">Wazuh dashboard mid-triage: a fired rule, its severity, the source host and the raw event.</p>
-          </div>
         </div>
         <figcaption class="ev-body">
           <span class="ev-src mono">SOC Detection Lab &middot; IR-001 &middot; T1110</span>
           <span class="ev-t">Brute force, caught and escalated</span>
-          <p class="ev-d">21 hits on Windows Event 4625. Individual failures fire rule <b>60122</b> at level 5; Wazuh correlates the burst into <b>60204</b> &mdash; "Multiple Windows Logon Failures" &mdash; at level 10. That escalation is the alert an analyst actually works.</p>
+          <p class="ev-d">21 hits on Windows Event 4625. Each individual failure fires rule <b>60122</b> at level 5, which on its own is noise. Wazuh correlates the burst into <b>60204</b>, "Multiple Windows Logon Failures", at level 10. That second one is the alert you'd actually work.</p>
         </figcaption>
       </figure>
 
       <figure class="ev reveal">
         <div class="shot">
           <img src="assets/evidence/threat-hunt-powershell.png" alt="Wazuh Events view with a DQL query hunting for PowerShell EncodedCommand, returning two level 12 alerts on rule 92057" onerror="this.remove()"/>
-          <div class="ph">
-            <span class="ph-f">assets/evidence/threat-hunt-powershell.png</span>
-            <p class="ph-t">A hunting query you wrote, and what it returned.</p>
-          </div>
         </div>
         <figcaption class="ev-body">
           <span class="ev-src mono">SOC Detection Lab &middot; IR-002 &middot; T1059.001</span>
           <span class="ev-t">Hunting encoded PowerShell</span>
-          <p class="ev-d">A DQL hunt across 706 fields &mdash; <code>data.win.eventdata.commandLine: *EncodedCommand*</code> &mdash; surfacing two level 12 hits on rule <b>92057</b>. Base64-encoded PowerShell is a standard evasion move; this is the query that finds it.</p>
+          <p class="ev-d">A DQL hunt across 706 available fields for <code>data.win.eventdata.commandLine: *EncodedCommand*</code>, which brings back two level 12 hits on rule <b>92057</b>. Encoding a PowerShell command in base64 is a cheap way to get it past anyone reading logs quickly, so it's worth looking for on purpose.</p>
         </figcaption>
       </figure>
 
       <figure class="ev reveal">
         <div class="shot">
           <img src="assets/evidence/sysmon-persistence.png" alt="Sysmon Event ID 1 showing a schtasks command creating a hidden SYSTEM-level scheduled task" onerror="this.remove()"/>
-          <div class="ph">
-            <span class="ph-f">assets/evidence/sysmon-persistence.png</span>
-            <p class="ph-t">Sysmon process-creation telemetry showing the malicious command line.</p>
-          </div>
         </div>
         <figcaption class="ev-body">
           <span class="ev-src mono">SOC Detection Lab &middot; IR-007 &middot; T1053.005</span>
-          <span class="ev-t">Persistence, in the raw telemetry</span>
-          <p class="ev-d">Sysmon Event ID 1 catching the full command line: a scheduled task named <code>WindowsUpdateCheck</code>, running PowerShell with <code>-WindowStyle Hidden</code> as <code>SYSTEM</code> at logon. The name is meant to look boring. The flags give it away.</p>
+          <span class="ev-t">Persistence in the raw telemetry</span>
+          <p class="ev-d">Sysmon Event ID 1 with the whole command line intact: a scheduled task called <code>WindowsUpdateCheck</code>, running PowerShell with <code>-WindowStyle Hidden</code> as <code>SYSTEM</code> at logon. The name is picked to look boring in a task list. The flags are what give it away.</p>
         </figcaption>
       </figure>
 
       <figure class="ev reveal">
         <div class="shot">
           <img src="assets/evidence/malware-triage.png" alt="VirusTotal detection page showing 10 of 69 security vendors flagging the sample as a trojan" onerror="this.remove()"/>
-          <div class="ph">
-            <span class="ph-f">assets/evidence/malware-triage.png</span>
-            <p class="ph-t">OSINT reputation lookup on a suspicious file hash.</p>
-          </div>
         </div>
         <figcaption class="ev-body">
           <span class="ev-src mono">SOC Detection Lab &middot; IR-009 &middot; T1204.002</span>
           <span class="ev-t">Hash triage against OSINT</span>
-          <p class="ev-d">A SHA-256 run through VirusTotal and MalwareBazaar: <b>10 of 69</b> vendors flagging it, family label <code>trojan.convagent</code>. A low detection ratio isn't an all-clear &mdash; it's the case for pivoting to behaviour instead of signatures.</p>
+          <p class="ev-d">A SHA-256 put through VirusTotal and MalwareBazaar. <b>10 of 69</b> vendors flagged it, under the family label <code>trojan.convagent</code>. A ratio that low isn't an all-clear, it's a reason to stop trusting signatures and go and look at what the file actually did.</p>
         </figcaption>
       </figure>
 
       <figure class="ev reveal">
         <div class="shot">
           <img src="assets/evidence/honeypot-analysis.png" alt="Six-panel Python matplotlib dashboard analysing SSH brute-force attempts against the Cowrie honeypot" onerror="this.remove()"/>
-          <div class="ph">
-            <span class="ph-f">assets/evidence/honeypot-analysis.png</span>
-            <p class="ph-t">Output from your Python credential analyser.</p>
-          </div>
         </div>
         <figcaption class="ev-body">
           <span class="ev-src mono">IoT Honeypot &middot; Final Year Project</span>
-          <span class="ev-t">552 log lines &rarr; a threat report</span>
-          <p class="ev-d">Six panels generated by <code>enhanced_credential_analyzer.py</code>: top usernames and passwords, the 98.4% / 1.6% split, attack timeline, source distribution and per-session attempts. The near-uniform username counts are what automation looks like in a chart.</p>
-        </figcaption>
-      </figure>
-
-      <!-- ── The two below are yours to fill. See assets/README.md for
-           what to redact before you publish a customer ticket. ── -->
-
-      <figure class="ev reveal">
-        <div class="shot">
-          <img src="assets/evidence/jira-queue.png" alt="Jira Service Management queue at HJ Digital Solutions, customer details redacted" onerror="this.remove()"/>
-          <div class="ph">
-            <span class="ph-f">assets/evidence/jira-queue.png</span>
-            <p class="ph-t">Your Jira Service Management queue view. Black out customer names and email addresses first &mdash; keep ticket IDs, statuses, priorities and dates.</p>
-          </div>
-        </div>
-        <figcaption class="ev-body">
-          <span class="ev-src mono">HJ Digital Solutions</span>
-          <span class="ev-t">Live support queue</span>
-          <p class="ev-d">Real tickets in a real queue, with statuses and priorities. Redacted &mdash; customer identities removed, workflow left intact.</p>
+          <span class="ev-t">552 log lines turned into a report</span>
+          <p class="ev-d">Six panels out of <code>enhanced_credential_analyzer.py</code>: top usernames and passwords, the 98.4% / 1.6% split, the attack timeline and per-session attempts. The username counts come out almost perfectly flat, which is what a wordlist looks like when you chart it.</p>
         </figcaption>
       </figure>
 
       <figure class="ev reveal">
-        <div class="shot">
-          <img src="assets/evidence/jira-ticket.png" alt="A single resolved support ticket with its documented resolution, customer details redacted" onerror="this.remove()"/>
-          <div class="ph">
-            <span class="ph-f">assets/evidence/jira-ticket.png</span>
-            <p class="ph-t">A single closed ticket showing your diagnosis and written resolution. This is the one that proves you document properly &mdash; pick a good one.</p>
-          </div>
+        <div class="shot shot-fit">
+          <img src="assets/evidence/jira-queue.png" alt="Jira Service Management queue for HJ Digital Solutions showing five resolved tickets, with customer email addresses redacted" onerror="this.remove()"/>
         </div>
         <figcaption class="ev-body">
           <span class="ev-src mono">HJ Digital Solutions</span>
-          <span class="ev-t">A ticket, start to finish</span>
-          <p class="ev-d">Raised, triaged, diagnosed, resolved, written up. The write-up is the part that matters &mdash; it's the same habit a SOC handover depends on.</p>
+          <span class="ev-t">The helpdesk queue</span>
+          <p class="ev-d">Real customer tickets in Jira Service Management: a password reset lockout, an MFA code that never arrived, a suspicious email, a deleted file recovery and a printer offline. All resolved and documented. The suspicious email one is the reason phishing triage is on my CV.</p>
         </figcaption>
       </figure>
 
@@ -669,56 +630,57 @@ body{background:var(--bg);color:var(--t1);font-family:var(--fb);font-size:1rem;l
 <section class="sec" id="skills">
   <div class="container">
     <div class="slabel mono">// 05. CAPABILITY</div>
-    <h2 class="sheading reveal">What I can do on day one</h2>
-    <p class="ssub reveal">The six things a Tier 1 SOC job description usually asks for, and where I've already done each of them.</p>
+    <h2 class="sheading reveal">What I can actually do</h2>
+    <p class="ssub reveal">Six things that keep coming up in junior SOC job adverts, and where I've done each of them. Everything here is backed by something you can go and read.</p>
 
     <div class="capgrid">
       <div class="cap reveal">
         <div class="cap-n mono">01</div>
         <h3 class="cap-t">Alert triage</h3>
-        <p class="cap-d">Take an alert, establish whether it's real, work out what it means, and decide whether it escalates. Nine scenarios triaged in Wazuh, plus live ticket triage weekly.</p>
+        <p class="cap-d">Pick up an alert, work out whether it's real, and decide if it goes up the chain. Nine scenarios triaged in Wazuh, plus whatever comes into the helpdesk queue that week.</p>
         <span class="cap-e mono">Evidence: <b>SOC Detection Lab &middot; HJ helpdesk</b></span>
       </div>
       <div class="cap reveal">
         <div class="cap-n mono">02</div>
         <h3 class="cap-t">Log analysis</h3>
-        <p class="cap-d">Read raw telemetry and find the signal. Sysmon and Wazuh event data in the lab; 552 raw Cowrie log entries parsed into a reportable dataset with Python.</p>
+        <p class="cap-d">Reading raw event data and finding the bit that matters. Sysmon and Wazuh logs in the lab, and 552 lines of Cowrie JSON turned into something reportable with Python.</p>
         <span class="cap-e mono">Evidence: <b>IoT Honeypot &middot; SOC Detection Lab</b></span>
       </div>
       <div class="cap reveal">
         <div class="cap-n mono">03</div>
         <h3 class="cap-t">Detection engineering</h3>
-        <p class="cap-d">Build and tune the rules that fire in the first place, then map coverage against MITRE ATT&amp;CK so the gaps are visible rather than assumed.</p>
-        <span class="cap-e mono">Evidence: <b>SOC Detection Lab &middot; Azure lab</b></span>
+        <p class="cap-d">Writing and testing the rules themselves, then mapping what they cover against MITRE ATT&amp;CK so I can see the gaps instead of assuming there aren't any.</p>
+        <span class="cap-e mono">Evidence: <b>Custom Wazuh rules &middot; Sigma drafts</b></span>
       </div>
       <div class="cap reveal">
         <div class="cap-n mono">04</div>
         <h3 class="cap-t">Incident documentation</h3>
-        <p class="cap-d">Write it down so the next analyst doesn't repeat the work. Nine formal incident reports, plus a documented resolution on every helpdesk ticket I close.</p>
+        <p class="cap-d">Writing it down so nobody has to do the work twice. Nine incident reports from the lab, and a written resolution on every helpdesk ticket before I close it.</p>
         <span class="cap-e mono">Evidence: <b>9 incident reports &middot; Jira tickets</b></span>
       </div>
       <div class="cap reveal">
         <div class="cap-n mono">05</div>
         <h3 class="cap-t">Phishing &amp; email triage</h3>
-        <p class="cap-d">Pick apart suspicious emails, check headers and links, and advise on whether an account is compromised. Part of the live support offering at HJ Digital Solutions.</p>
-        <span class="cap-e mono">Evidence: <b>HJ helpdesk &middot; degree coursework</b></span>
+        <p class="cap-d">Going through a suspicious email properly: headers, sender, where the links actually go, and whether the account behind it has been touched. Customers bring us these.</p>
+        <span class="cap-e mono">Evidence: <b>HJD-3 &middot; SOC lab IR-008</b></span>
       </div>
       <div class="cap reveal">
         <div class="cap-n mono">06</div>
         <h3 class="cap-t">Working a queue</h3>
-        <p class="cap-d">Ticket in, ticket out, nothing dropped, honest escalation when it's beyond scope. A live Jira Service Management desk with real customers waiting on me.</p>
+        <p class="cap-d">Nothing gets dropped and nothing gets bluffed. If a job is past what I can do, it gets referred on. Real customers, real Jira queue, and they're waiting on me.</p>
         <span class="cap-e mono">Evidence: <b>HJ Digital Solutions</b></span>
       </div>
     </div>
 
-    <h2 class="sheading reveal" style="font-size:1.35rem;margin-bottom:1.6rem">Tools &amp; technologies</h2>
+    <h2 class="sheading reveal" style="font-size:1.35rem;margin-bottom:.6rem">Tools I've actually used</h2>
+    <p class="ssub reveal" style="margin-bottom:1.6rem">Only things I've used in a project, at work, or in the labs above. Anything marked <em>lab</em> or <em>learning</em> is exactly that.</p>
     <div class="sgrid">
-      <div class="sgrp reveal"><h3 class="sgrp-t">SOC &amp; Detection</h3><div class="stags"><span class="stag">Wazuh</span><span class="stag">Microsoft Sentinel</span><span class="stag">Splunk</span><span class="stag">Sysmon</span><span class="stag">SIEM</span><span class="stag">IDS / IPS</span><span class="stag">Alert Triage</span><span class="stag">Incident Response</span><span class="stag">Threat Intelligence</span></div></div>
-      <div class="sgrp reveal"><h3 class="sgrp-t">Cloud &amp; Identity</h3><div class="stags"><span class="stag">Microsoft Azure</span><span class="stag">Entra ID</span><span class="stag">Defender for Cloud</span><span class="stag">Microsoft 365</span><span class="stag">IAM</span><span class="stag">KQL</span><span class="stag">Cloud Hardening</span></div></div>
-      <div class="sgrp reveal"><h3 class="sgrp-t">Offensive &amp; Analysis</h3><div class="stags"><span class="stag">Kali Linux</span><span class="stag">Nmap</span><span class="stag">Metasploit</span><span class="stag">Burp Suite</span><span class="stag">Wireshark</span><span class="stag">Cowrie</span><span class="stag">OSINT</span><span class="stag">Vulnerability Assessment</span></div></div>
-      <div class="sgrp reveal"><h3 class="sgrp-t">Service &amp; Process</h3><div class="stags"><span class="stag">Jira Service Management</span><span class="stag">Ticket Triage</span><span class="stag">Runbook Writing</span><span class="stag">Escalation Handling</span><span class="stag">Remote Support</span></div></div>
-      <div class="sgrp reveal"><h3 class="sgrp-t">Programming</h3><div class="stags"><span class="stag">Python</span><span class="stag">Bash</span><span class="stag">PowerShell</span><span class="stag">HTML / CSS</span><span class="stag">JavaScript</span></div></div>
-      <div class="sgrp reveal"><h3 class="sgrp-t">Frameworks</h3><div class="stags"><span class="stag">MITRE ATT&amp;CK</span><span class="stag">NIST CSF</span><span class="stag">ISO 27001</span><span class="stag">Cyber Kill Chain</span></div></div>
+      <div class="sgrp reveal"><h3 class="sgrp-t">SOC &amp; Detection</h3><div class="stags"><span class="stag">Wazuh</span><span class="stag">Sysmon</span><span class="stag">Windows Event Logs</span><span class="stag">Alert Triage</span><span class="stag">Detection Rules</span><span class="stag">Sigma</span><span class="stag">MITRE ATT&amp;CK</span><span class="stag">Incident Response</span><span class="stag">Threat Intelligence</span></div></div>
+      <div class="sgrp reveal"><h3 class="sgrp-t">Cloud &amp; Identity</h3><div class="stags"><span class="stag">Microsoft 365</span><span class="stag">Entra ID</span><span class="stag">Defender for Cloud</span><span class="stag">Microsoft Sentinel <em>(lab)</em></span><span class="stag">KQL <em>(learning)</em></span></div></div>
+      <div class="sgrp reveal"><h3 class="sgrp-t">Systems &amp; Networking</h3><div class="stags"><span class="stag">Windows Server</span><span class="stag">Active Directory</span><span class="stag">Group Policy</span><span class="stag">Ubuntu Server</span><span class="stag">Kali Linux</span><span class="stag">TCP/IP</span><span class="stag">DNS / DHCP</span><span class="stag">Wireshark</span></div></div>
+      <div class="sgrp reveal"><h3 class="sgrp-t">Offensive &amp; Analysis</h3><div class="stags"><span class="stag">Nmap</span><span class="stag">Hydra</span><span class="stag">Burp Suite</span><span class="stag">Cowrie</span><span class="stag">VirusTotal / MalwareBazaar</span><span class="stag">OSINT</span><span class="stag">Hack The Box</span></div></div>
+      <div class="sgrp reveal"><h3 class="sgrp-t">Service &amp; Process</h3><div class="stags"><span class="stag">Jira Service Management</span><span class="stag">Ticket Triage</span><span class="stag">Response Playbooks</span><span class="stag">Escalation Handling</span><span class="stag">Remote Support</span></div></div>
+      <div class="sgrp reveal"><h3 class="sgrp-t">Scripting</h3><div class="stags"><span class="stag">Python <em>(pandas, matplotlib)</em></span><span class="stag">Bash</span><span class="stag">PowerShell</span><span class="stag">HTML / CSS</span><span class="stag">JavaScript</span></div></div>
     </div>
   </div>
 </section>
@@ -729,10 +691,10 @@ body{background:var(--bg);color:var(--t1);font-family:var(--fb);font-size:1rem;l
     <div class="slabel mono">// 06. CREDENTIALS</div>
     <h2 class="sheading reveal">Clearance &amp; certifications</h2>
     <div class="cgrid">
-      <div class="ccard ccard-key reveal"><div class="cicon mono">SC</div><div class="cbody"><h3 class="ctitle">SC Security Clearance</h3><p class="cissuer">Held &mdash; alongside BPSS</p><p class="cyear mono">Active</p></div><span class="badge b-done">Held</span></div>
+      <div class="ccard ccard-key reveal"><div class="cicon mono">SC</div><div class="cbody"><h3 class="ctitle">SC Security Clearance</h3><p class="cissuer">Held, alongside BPSS</p><p class="cyear mono">Active</p></div><span class="badge b-done">Held</span></div>
       <div class="ccard reveal"><div class="cicon mono">BSc</div><div class="cbody"><h3 class="ctitle">BSc (Hons) Cyber Security</h3><p class="cissuer">Nottingham Trent University &mdash; 2:1</p><p class="cyear mono">2023 – 2026</p></div><span class="badge b-done">Achieved</span></div>
       <div class="ccard reveal"><div class="cicon mono">S+</div><div class="cbody"><h3 class="ctitle">CompTIA Security+</h3><p class="cissuer">CompTIA</p><p class="cyear mono">2026</p></div><span class="badge b-live">In Progress</span></div>
-      <div class="ccard reveal"><div class="cicon mono">RS</div><div class="cbody"><h3 class="ctitle">Royal Signals Reserve</h3><p class="cissuer">British Army &mdash; accepted, at medical stage</p><p class="cyear mono">2026</p></div><span class="badge b-live">In Progress</span></div>
+      <div class="ccard reveal"><div class="cicon mono">RS</div><div class="cbody"><h3 class="ctitle">Royal Signals Reserve</h3><p class="cissuer">British Army &mdash; application accepted</p><p class="cyear mono">2026</p></div><span class="badge b-live">In Progress</span></div>
       <div class="ccard ccard-dim reveal"><div class="cicon mono">→</div><div class="cbody"><h3 class="ctitle">Next up</h3><p class="cissuer">SC-200 &middot; BTL1 &middot; CySA+</p><p class="cyear mono">Planned</p></div><span class="badge b-plan">Planned</span></div>
     </div>
   </div>
@@ -743,7 +705,7 @@ body{background:var(--bg);color:var(--t1);font-family:var(--fb);font-size:1rem;l
   <div class="container">
     <div class="slabel mono">// 07. CONTACT</div>
     <h2 class="sheading reveal">Get in touch</h2>
-    <p class="ssub reveal">I'm looking for a SOC analyst role in the UK &mdash; graduate, Tier 1, or an apprenticeship route. SC cleared and available now. Email is the fastest way to reach me.</p>
+    <p class="ssub reveal">I'm after a SOC analyst role in the UK, whether that's a graduate scheme, a Tier 1 seat or an apprenticeship route. SC cleared and free to start now. Email gets to me quickest.</p>
     <div class="cntgrid reveal">
       <a href="mailto:harryklair@hotmail.co.uk" class="cntcard"><span class="cnticon mono">@</span><div><p class="cntlabel">Email</p><p class="cntval">harryklair@hotmail.co.uk</p></div></a>
       <a href="https://www.linkedin.com/in/harry-klair-4a993b224/" target="_blank" rel="noopener" class="cntcard"><span class="cnticon mono">in</span><div><p class="cntlabel">LinkedIn</p><p class="cntval">Connect with me ↗</p></div></a>
