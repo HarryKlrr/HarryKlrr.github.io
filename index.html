@@ -366,7 +366,7 @@ body{background:var(--bg);color:var(--t1);font-family:var(--fb);font-size:1rem;l
     <div class="proof-grid">
       <div class="pstat"><div class="pstat-v">552</div><div class="pstat-l">Login attempts logged<br/>and analysed in my honeypot</div></div>
       <div class="pstat"><div class="pstat-v">9</div><div class="pstat-l">Attack scenarios run,<br/>detected and written up</div></div>
-      <div class="pstat"><div class="pstat-v">2</div><div class="pstat-l">Detection gaps I found<br/>in my own lab, and fixed</div></div>
+      <div class="pstat"><div class="pstat-v">2</div><div class="pstat-l">Incident reports I corrected<br/>after re-checking my own work</div></div>
       <div class="pstat"><div class="pstat-v accent">SC</div><div class="pstat-l">Security clearance held,<br/>plus BPSS</div></div>
     </div>
   </div>
@@ -381,7 +381,7 @@ body{background:var(--bg);color:var(--t1);font-family:var(--fb);font-size:1rem;l
       <div class="reveal">
         <p class="about-p">I finished a Cyber Security degree at Nottingham Trent this year and I'm looking for a <strong>SOC analyst role</strong>. The parts of the job I want are triage, log analysis, and writing the thing up properly afterwards so nobody has to redo the work.</p>
         <p class="about-p">Most of my degree went on building things. For my final year project I set up a Cowrie honeypot dressed up as an IoT device on an isolated network, then attacked it myself from Kali using IoT default-credential wordlists. It logged <strong>552 login attempts</strong>. The volume wasn't the interesting bit, since I generated it. What was interesting is that 7 of the 10 usernames and 9 of the 20 passwords I used are hard-coded in the original Mirai source, including <code>xc3511</code> for XiongMai cameras. It was a contained lab study rather than real internet traffic, and my report says so.</p>
-        <p class="about-p">Separately I built a home SOC on Wazuh and Sysmon against a Windows 10 box, ran <strong>nine attack scenarios</strong>, and wrote an incident report for each one mapped to MITRE ATT&amp;CK. Two of my detections didn't fire when they should have. Both of those are in the repo with a note on what went wrong, because working out why a rule stayed silent taught me more than the seven that worked.</p>
+        <p class="about-p">Separately I built a home SOC on Wazuh and Sysmon against a Windows 10 box, ran <strong>nine attack scenarios</strong>, and wrote an incident report for each one mapped to MITRE ATT&amp;CK. Two of those reports originally said I'd found a detection gap. When I went back and checked, one was my own search method and the other was a Windows audit subcategory that's off by default &mdash; neither was Wazuh missing anything. I corrected both reports and left the correction visible rather than quietly rewriting them. One custom Sysmon rule of mine still doesn't fire, and that one is logged as open.</p>
         <p class="about-p">I also co-run <strong><a href="https://hjdigitalsolutions.co.uk" target="_blank" rel="noopener" class="accent">HJ Digital Solutions</a></strong>, a small UK IT support business. Every job goes through Jira Service Management and gets a written resolution before it's closed. It's the nearest thing to a real queue I could set up for myself.</p>
         <p class="about-p">I hold <strong>SC clearance and BPSS</strong>, both from a cleared contract at GXO. I'm working through CompTIA Security+, I'm on Hack The Box most weeks, and my Royal Signals Reserve application has been accepted. I box and train most days, and I bring the same thing to this. I outwork the room.</p>
       </div>
@@ -492,7 +492,7 @@ body{background:var(--bg);color:var(--t1);font-family:var(--fb);font-size:1rem;l
       <div class="pcard pcard-feat reveal">
         <div class="ptop"><span class="pnum mono">01</span><div class="pbadges"><span class="badge b-feat">Most SOC-relevant</span><span class="badge b-done">Completed</span></div></div>
         <h3 class="ptitle">SOC Detection Lab</h3>
-        <p class="pdesc">A home SOC set up to run the whole analyst workflow. I attacked a Windows 10 box from Kali nine different ways, collected the telemetry with Wazuh and Sysmon, then triaged each alert, mapped it to an ATT&amp;CK technique and wrote it up. Two of my detections didn't work: one host wasn't forwarding its logs, and a custom rule I'd written never fired at all. Both are in the repo with what I found, because that was the useful part.</p>
+        <p class="pdesc">A home SOC set up to run the whole analyst workflow. I attacked a Windows 10 box from Kali nine different ways, collected the telemetry with Wazuh and Sysmon, then triaged each alert, mapped it to an ATT&amp;CK technique and wrote it up. Two reports first recorded a detection gap. Re-checking showed one was my own search method and one was a Windows audit subcategory that is off by default, so both were corrected in the repo. One custom Sysmon rule is still logged as open.</p>
         <div class="pout">
           <span class="pout-l mono">Output</span>
           <span class="pout-v">Nine incident reports covering nine ATT&amp;CK techniques, three response playbooks, plus the Wazuh rules I validated and some Sigma drafts.</span>
